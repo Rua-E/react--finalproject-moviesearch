@@ -9,9 +9,6 @@ function App() {
     <Router>
       <>
         <Routes>
-          <Route>
-            
-          </Route>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/Movies" element={<MovieSearch/>}></Route>
           <Route path=":Title" element={<MovieResults/>}></Route>
