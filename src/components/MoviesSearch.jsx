@@ -6,21 +6,25 @@ import Footer from './Footer';
 
 const MovieSearch = () => {
   const { Title } = useParams();
-  const [posts, setPosts] = useState([]);
-  const [searchMovie, setSearchMovie] = useState(Title)
+  const [post, setPosts] = useState([]);
+  const [searchMovie, setSearchMovie] = useState(Title || "");
   let navigate = useNavigate();
 
   function onSearch() {
     fetchMovie(searchMovie)
   }
 
-  async function fetchMovie(searchMovie) {
-    const { data } = await axios.get(`https://www.omdbapi.com/?t=${searchMovie || Title}&apikey=3e685048`);
-    setPosts(data.data);
+  async function fetchMovie(movieTitle) {
+    try {
+      const { data } = await axios.get(`https://www.omdbapi.com/?t=${movieTitle}&apikey=3e685048`);
+      setPosts(data);
+    } catch (error) {
+      console.log("Error fetching movie data", error);
+    }
   }
   useEffect(() => { 
-    fetchMovie();
-  }, []);
+    fetchMovie(Title);
+  }, [Title]);
 
   return (
     <>
@@ -32,11 +36,11 @@ const MovieSearch = () => {
           <input 
             value={searchMovie} 
             onChange={(event) => setSearchMovie(event.target.value)} 
-            onClick={() => onSearch()} 
+            // onClick={() => onSearch()} 
             onKeyDown={(event) => event.key === 'Enter' && onSearch()}
             type="text" 
             placeholder='SEARCH' 
-            className='relative items-center justify-center bg-yellow-300 inline-block min-h-16 leading-10  border-4 border-amber-500 rounded-full max-w-96 text-xl pl-10 overflow-hidden' />
+            className='relative text-center items-center justify-center bg-yellow-300 inline-block min-h-16 leading-10  border-4 border-amber-500 rounded-full max-w-96 text-xl overflow-hidden' />
         </div>
       </div>
 
@@ -50,24 +54,24 @@ const MovieSearch = () => {
         </h1>
         </div>
         
-        <div onClick={() => navigate("/Title")} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
+        {/* Movie details rendering */}
+      {post && (
+        <div onClick={() => navigate(`post.Title`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
           <div className='mt-8 w-full flex flex-wrap justify-between'>
             <div className='border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center'>
               <div className='text-white'>
-                Title: post.Title 
+                Title: {post.Title} 
               </div>
               <div className='text-white'>
-                Year: post.Year
+                Year: {post.Year}
               </div>
               <div className='text-white'>
-                post.Poster
-                <img src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg" alt="" />
+                <img src={post.Poster} alt={`${post.Title} poster`} />
               </div>
-            {/* {posts.map(post => <>{post.Title}</>)} */}
             </div>
           </div>
-
         </div>
+      )}
         <h5 className='text-white bg-black font-thin pb-5 pl-5'> End of search results for:   <span className='font-extrabold font-mono'> {searchMovie} </span> </h5>
     </div>
     <Footer></Footer>

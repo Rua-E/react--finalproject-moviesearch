@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import DropDownMenu from './DropDownMenu';
 
 const NavigationBar = ({ title }) => {
-    
+
   return (
       <>
     
@@ -18,7 +18,7 @@ const NavigationBar = ({ title }) => {
             {title === "Home" ? ( 
             <Link to="/Movies">
                 <button 
-                    className='flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
+                    className='ml-60 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                     <div 
                         className='text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         title="Find"
@@ -28,7 +28,7 @@ const NavigationBar = ({ title }) => {
             </Link>
             ) : ( 
             <Link to="/">
-                <button className='flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
+                <button className='ml-60 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                     <div 
                         className='text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         title="Home"
@@ -38,7 +38,9 @@ const NavigationBar = ({ title }) => {
             </Link>
                 )}
         </div>
+        <div>
             <DropDownMenu></DropDownMenu>
+        </div>
             <div className='border-t-4 border-double border-amber-900'></div>
       </div>
 

@@ -2,12 +2,13 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
+import DropDownMenu from './DropDownMenu';
 
 const Home = () => {
     let navigate = useNavigate();
   return (
     <div className='min-h-screen flex flex-col flex-1 '>
-     <NavigationBar title="Home">
+     <NavigationBar title="Home" >
      </NavigationBar>
 
       <div className='max-w-full pt-0 pr-20 pl-20 flex flex-col items-center justify-between'>
