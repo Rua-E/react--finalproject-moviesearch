@@ -8,12 +8,18 @@ import Footer from './Footer';
 const MovieSearch = () => {
   const { Title } = useParams();
   const [posts, setPosts] = useState([]);
+  const [searchMovie, setSearchMovie] = useState(Title)
+
+
+  function onSearch() {
+    fetchMovie(searchMovie)
+  }
   
+  async function fetchMovie(searchMovie) {
+    const { data } = await axios.get(`https://www.omdbapi.com/?t=${searchMovie || Title}&apikey=3e685048`);
+    setPosts(data.data);
+  }
   useEffect(() => { 
-    async function fetchMovie() {
-      const { data } = await axios.get(`https://www.omdbapi.com/?t=${Title}&apikey=3e685048`);
-      setPosts(data.data);
-    }
     fetchMovie();
   }, []);
 
@@ -27,19 +33,20 @@ const MovieSearch = () => {
 
       <div className='flex flex-wrap flex-col items-center justify-center z-2 mt-1/2 pt-5 bg-black w-full'>
         <div className='max-w-2xl relative rounded-full'>
-          <input type="text" placeholder='SEARCH' className='relative items-center justify-center bg-yellow-300 inline-block min-h-16 leading-10  border-4 border-amber-500 rounded-full max-w-96 text-xl pl-10 overflow-hidden' />
+          <input value={searchMovie} onChange={(event) => setSearchMovie(event.target.value)} onClick={() => onSearch()} type="text" placeholder='SEARCH' className='relative items-center justify-center bg-yellow-300 inline-block min-h-16 leading-10  border-4 border-amber-500 rounded-full max-w-96 text-xl pl-10 overflow-hidden' />
         </div>
       </div>
 
-      <div class="flex h-fit w-full justify-center bg-black">
-        <span class="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
+      <div className="flex h-fit w-full justify-center bg-black">
+        <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
         Enjoy your Movie!
         </span>
         <h1
-            class="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
+            className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
             Enjoy your Movie!
         </h1>
         </div>
+        <h5 className='text-white bg-black font-thin'> Search results for:   <span className='font-extrabold font-mono'> {searchMovie} </span> </h5>
 
         <div onClick={() => navigate("/Title")} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
           <div className='mt-8 w-full flex flex-wrap justify-between'>
