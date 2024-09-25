@@ -24,8 +24,8 @@ const Home = () => {
                 <div className='flex items-center justify-center cursor-pointer w-52 rounded-full border-4 border-y-amber-500 hover:border-y-white border-x-amber-950 hover:border-x-amber-500 border-dotted outline outline-offset-2 outline-4 outline-orange-400 hover:outline-orange-800 shadow-2xl shadow-amber-600 hover:shadow-amber-600 active:shadow-white hover:bg-orange-400 active:bg-orange-800 active:outline-amber-500 focus:ring-orange-800'>
                     <button>
                         <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" className="size-8 stroke-amber-900 flex items justify-center hover:stroke-white active:stroke-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-8 stroke-amber-900 flex items justify-center hover:stroke-white active:stroke-white">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         </div>
                     </button>
