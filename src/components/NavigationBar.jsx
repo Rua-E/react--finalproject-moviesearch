@@ -15,7 +15,7 @@ const NavigationBar = ({ title }) => {
             </div>
             {title === "Home" ? ( <div className='flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                 <button 
-                    className='text-xs relative flex border-2 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-orange-400 hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                    className='text-xs relative flex border-2 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                     onClick={() => navigate("/Movies")} 
                     title="Find"
                 >--- Find Your Movie Here! ---
@@ -23,7 +23,7 @@ const NavigationBar = ({ title }) => {
             </div>)
            : ( <div className='flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                 <button 
-                    className='text-xs relative flex border-2 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-orange-400 hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                    className='text-xs relative flex border-2 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                     onClick={() => navigate("/")} 
                     title="Home"
                 >     --- Home ---     
@@ -55,7 +55,7 @@ const NavigationBar = ({ title }) => {
             </div>
         </div>
       </div>
-      <div className='border-t-4 border-double border-black'></div>
+      <div className='border-t-4 border-double border-amber-900'></div>
     </>
   )
 }

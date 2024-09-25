@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./components/home"
 import MovieSearch from "./components/MoviesSearch"
+import MovieResults from "./components/MovieResults"
 
 function App() {
 
@@ -13,8 +14,7 @@ function App() {
           </Route>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/Movies" element={<MovieSearch/>}></Route>
-          <Route></Route>
-          <Route></Route>
+          <Route path=":Title" element={<MovieResults/>}></Route>
         </Routes>
       </>
      </Router>
