@@ -60,7 +60,7 @@ const MovieSearch = () => {
         {/* {posts.map(post => <div>{post.Title}</div>)} */}
 
 
-        {post && (
+        {post.map(post => {post && (
         <>
           <div onClick={() => navigate(`/${post.imdbID}`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
             <div className='mt-8 w-full flex flex-wrap justify-between'>
@@ -78,7 +78,7 @@ const MovieSearch = () => {
             </div>
           </div>
         </>
-        )}
+        )})}
         <h5 className='text-white bg-black font-thin pb-5 pl-5'> End of search results for:   <span className='font-extrabold font-mono'> {searchMovie} </span> </h5>
         </div>
     <Footer></Footer>
