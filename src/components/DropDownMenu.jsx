@@ -32,7 +32,7 @@ return (
 
           {isOpen && (
               <div 
-              className='px-12  visible sm:invisible rounded-2xl h-fit outline-double outline-yellow-600 outline-8 border-black border-4 border-double bg-yellow-400 pb-auto m-y-20  text-amber-900  text-lg font-bold text-center z-10 min-w-auto flex flex-col' >  
+              className='px-12  visible sm:invisible rounded-2xl h-fit outline-double outline-yellow-600 outline-8 border-black border-4 border-double bg-yellow-400 pb-auto m-y-20  text-amber-900  text-lg font-bold text-center z-1 min-w-auto flex flex-col' >  
                       <Link to="/">
                       <button className='cursor-pointer my-10 max-h-14 flex-auto overflow-hidden w-56 border-8 border-amber-900 rounded-3xl leading-6 shadow-lg ring-1 ring-amber-900'>
                           <div className='p-2'>

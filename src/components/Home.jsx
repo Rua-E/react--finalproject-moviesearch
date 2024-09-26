@@ -10,7 +10,6 @@ const Home = () => {
     <div className='min-h-screen flex flex-col flex-1 '>
      <NavigationBar title="Home" >
      </NavigationBar>
-
       <div className='max-w-full pt-0 pr-20 pl-20 flex flex-col items-center justify-between'>
         <div className='relative flex flex-col items my-0 mx-auto max-w-full'>
             <div className='z-10 bg-white flex flex-col items-center'>

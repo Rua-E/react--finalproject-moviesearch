@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import DropDownMenu from './DropDownMenu';
 
 const NavigationBar = ({ title }) => {
+    let navigate = useNavigate();
 
   return (
       <>
@@ -16,26 +17,25 @@ const NavigationBar = ({ title }) => {
                     alt="Move Logo" />
             </div>
             {title === "Home" ? ( 
-            <Link to="/Movies">
                 <button 
-                    className='ml-60 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
+                    onClick={() => navigate("/Movies")}
+                    className='z-10 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                     <div 
-                        className='text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        className='z-10 text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         title="Find"
                         >--- Find Your Movie Here! ---
                     </div>
                 </button>
-            </Link>
             ) : ( 
-            <Link to="/">
-                <button className='ml-60 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
+                <button 
+                    onClick={() => navigate("/", console.log("Going Home"))} 
+                    className='z-10 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                     <div 
-                        className='text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        className='z-10 text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         title="Home"
                         >     --- Home ---     
                     </div>
                 </button>
-            </Link>
                 )}
         </div>
         <div>
