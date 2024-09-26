@@ -21,7 +21,7 @@ const NavigationBar = ({ title }) => {
                     onClick={() => navigate("/Movies")}
                     className='z-10 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                     <div 
-                        className='z-10 text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        className='z-10 text-xs relative flex border-2 my-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         title="Find"
                         >--- Find Your Movie Here! ---
                     </div>
@@ -31,11 +31,12 @@ const NavigationBar = ({ title }) => {
                     onClick={() => navigate("/", console.log("Going Home"))} 
                     className='z-10 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
                     <div 
-                        className='z-10 text-xs relative flex border-2 mt-10 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        className='z-10 my-10 text-xs relative flex border-2 rounded border-double border-orange-500 shadow-2xl drop-shadow-md shadow-red-900 outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-orange-800 active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         title="Home"
                         >     --- Home ---     
                     </div>
                 </button>
+           
                 )}
         </div>
         <div>

@@ -21,8 +21,8 @@ const MovieResults = () => {
         fetchMovieDetails();
     }, [Id]);
 
-    if (!movie) {
-        return <div className='text-white bg-black'> Loading... </div>
+    if (!movie && className="duration-1000") {
+        return <div className='text-white bg-black h-screen duration-[10000ms]'> Loading... </div>
     }
 
   return (
