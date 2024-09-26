@@ -21,7 +21,7 @@ const Home = () => {
                 <div className='max-w-max min-h-max'>
                     <img className='flex items-center align-baseline max-w-max min-h-max bottom-0 h-40 w-40 mt-10' src="https://media1.giphy.com/media/C8GzyTpmnYmuWIsZ03/giphy.gif?cid=790b76114rs43b13sqjzfph8nosmwrni9pee94fhqp45a28q&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="" />
                 </div>
-                <div className='flex items-center justify-center cursor-pointer w-52 rounded-full border-4 border-y-amber-500 hover:border-y-white border-x-amber-950 hover:border-x-amber-500 border-dotted outline outline-offset-2 outline-4 outline-orange-400 hover:outline-orange-800 shadow-2xl shadow-amber-600 hover:shadow-amber-600 active:shadow-white hover:bg-orange-400 active:bg-orange-800 active:outline-amber-500 focus:ring-orange-800'>
+                <div className='flex items-center justify-center cursor-pointer w-52 rounded-full border-4 border-y-amber-500 hover:border-y-white border-x-amber-950 hover:border-x-amber-500 border-dotted outline outline-offset-2 outline-4 outline-orange-400 hover:outline-orange-800 shadow-2xl shadow-amber-600 hover:shadow-amber-600 active:shadow-white hover:bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 active:bg-orange-800 active:outline-amber-500 focus:ring-orange-800'>
                     <button>
                         <div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-8 stroke-amber-900 flex items justify-center hover:stroke-white active:stroke-white">

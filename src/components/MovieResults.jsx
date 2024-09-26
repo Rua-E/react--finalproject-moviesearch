@@ -21,8 +21,23 @@ const MovieResults = () => {
         fetchMovieDetails();
     }, [Id]);
 
-    if (!movie && className="duration-1000") {
-        return <div className='text-white bg-black h-screen duration-[10000ms]'> Loading... </div>
+    const[loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2606);
+        // return() => clearTimeout(timer);
+        }, []);
+
+
+    if (loading) {
+        return <div className='text-white bg-black relative h-screen flex flex-col items-center justify-center '> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className=" transition-all ease-in-out animate-bounce stroke-amber-500 relative h-screen pt-32">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                    <div className='text-4xl  bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text font-extrabold text-transparent text-center select-auto'>Loading...</div>
+                </div>
     }
 
   return (
