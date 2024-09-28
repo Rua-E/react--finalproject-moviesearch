@@ -29,14 +29,14 @@ const MovieSearch = () => {
   return (
 
     <div className='min-h-screen flex flex-col flex-1 '>
-      <NavigationBar title="Find" ></NavigationBar>
+      <NavigationBar ></NavigationBar>
       <div className='h-screen bg-black'>
       <div className='flex flex-wrap flex-col items-center justify-center z-2 mt-1/2 pt-5 bg-black w-full'>
         <div className='max-w-2xl relative rounded-full'>
           <input 
             value={searchMovie} 
             onChange={(event) => setSearchMovie(event.target.value)} 
-            // onClick={() => onSearch()} 
+            onClick={() => onSearch()} 
             onKeyDown={(event) => event.key === 'Enter' && onSearch()}
             type="text" 
             placeholder='SEARCH' 
@@ -59,14 +59,31 @@ const MovieSearch = () => {
 
         {/* {posts.map(post => <div>{post.Title}</div>)} */}
 
+{/* 
+        // {post.map((movie) => {
+        //   return (<div onClick={() => navigate(`/${movie.imdbID}`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
+        //     <div className='mt-8 w-full flex flex-wrap justify-between'>
+        //       <div className='border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center'>
+        //         <div className='text-white'>
+        //           Title: {movie.Title} 
+        //         </div>
+        //         <div className='text-white'>
+        //           Year: {movie.Year}
+        //         </div>
+        //         <div className='text-white'>
+        //           <img src={movie.Poster} alt={`${movie.Title} poster`} />
+        //         </div>
+        //       </div>
+        //     </div>
+        //   </div>)
+        // })} */}
 
-        {post.map(post => {post && (
-        <>
-          <div onClick={() => navigate(`/${post.imdbID}`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
+{post && (
+          <div onClick={() => navigate(`/${post.Title}`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
             <div className='mt-8 w-full flex flex-wrap justify-between'>
               <div className='border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center'>
                 <div className='text-white'>
-                  Title: {post.Title} 
+                  Title: {post.Title}
                 </div>
                 <div className='text-white'>
                   Year: {post.Year}
@@ -77,8 +94,7 @@ const MovieSearch = () => {
               </div>
             </div>
           </div>
-        </>
-        )})}
+        )}
         <h5 className='text-white bg-black font-thin pb-5 pl-5'> End of search results for:   <span className='font-extrabold font-mono'> {searchMovie} </span> </h5>
         </div>
     <Footer></Footer>

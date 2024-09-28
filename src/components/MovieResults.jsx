@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 
 const MovieResults = () => {
+    let navigate = useNavigate();
      const { Id } = useParams();
      const [movie, setMovie] = useState(null);
 
@@ -27,22 +28,42 @@ const MovieResults = () => {
         const timer = setTimeout(() => {
             setLoading(false);
         }, 2606);
-        // return() => clearTimeout(timer);
         }, []);
 
 
     if (loading) {
-        return <div className='text-white bg-black relative h-screen flex flex-col items-center justify-center '> 
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className=" transition-all ease-in-out animate-bounce stroke-amber-500 relative h-screen pt-32">
+        return <>
+        <div className='text-white bg-black relative h-screen flex flex-col items-center justify-center '> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className=" transition-all ease-in-out motion-safe:animate-bounce stroke-amber-500 relative h-screen pt-32">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                     </svg>
-                    <div className='text-4xl  bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text font-extrabold text-transparent text-center select-auto'>Loading...</div>
-                </div>
+                    <div className='text-4xl  bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text font-extrabold text-transparent text-center select-auto sticky bottom-14'>Loading...</div>
+        </div>
+        <Footer></Footer>
+        </>
     }
 
   return (
+    
     <div className='min-h-screen'>
-        <NavigationBar title={movie.Title}></NavigationBar>
+        
+        <NavigationBar>
+            
+        </NavigationBar>
+        <div className='bg-black'>
+            <button 
+                    onClick={() => navigate("/Movies")}
+                    className='z-10 text-amber-950 hover:text-white active:text-white '>
+                    <div 
+                        className='z-10 absolute left-6 top-6 text-xs flex rounded shadow-2xl drop-shadow-md outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-white active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        >  
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" class="size-6 stroke-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                        </svg>
+    
+                    </div>
+                </button>
+                </div>
         <div className="flex h-auto w-full justify-center bg-black pt-5">
             <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl box-content text-transparent text-center select-none">
             Enjoy your Movie!
@@ -52,7 +73,7 @@ const MovieResults = () => {
                 Enjoy your Movie!
             </h1>
         </div>
-       <div className=' min-h-screen mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black h-full'>
+       <div className=' min-h-screen mx-0 my-auto w-full flex justify-center flex-wrap bg-black h-full'>
           <div className='w-full flex justify-between h-full'>
             <div className='flex items-center justify-around border-8 border-double border-amber-500 rounded-sm p-5 m-8  text-xl font-bold text-white w-11/12'>
 

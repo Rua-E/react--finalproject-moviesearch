@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DropDownMenu from './DropDownMenu';
 
 const NavigationBar = ({ title }) => {
@@ -16,7 +16,7 @@ const NavigationBar = ({ title }) => {
                     src="https://static.vecteezy.com/system/resources/thumbnails/023/608/676/small_2x/movie-film-frame-png.png" 
                     alt="Move Logo" />
             </div>
-            {title === "Home" ? ( 
+            {title === ("Home") ? ( 
                 <button 
                     onClick={() => navigate("/Movies")}
                     className='z-10 flex items-center justify-center w-full text-amber-800 hover:text-white active:text-white'>
@@ -36,8 +36,9 @@ const NavigationBar = ({ title }) => {
                         >     --- Home ---     
                     </div>
                 </button>
-           
                 )}
+         
+            
         </div>
         <div>
             <DropDownMenu></DropDownMenu>
