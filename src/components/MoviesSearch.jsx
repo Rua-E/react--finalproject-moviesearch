@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 const MovieSearch = () => {
   const { Title } = useParams();
-  const [post, setPosts] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [searchMovie, setSearchMovie] = useState(Title || "");
   let navigate = useNavigate();
 
@@ -17,11 +17,11 @@ const MovieSearch = () => {
   async function fetchMovie(movieTitle) {
     try {
       const { data } = await axios.get(`https://www.omdbapi.com/?s=${movieTitle}&apikey=3e685048`);
-      setPosts(data);
+      setMovies(data);
     if (data.Response === "True") {
-      setPosts(data.Search);
+      setMovies(data.Search);
     } else {
-      setPosts([]);
+      setMovies([]);
     }
     } catch (error) {
       console.log("Error fetching movie data", error);
@@ -60,9 +60,8 @@ const MovieSearch = () => {
       </div>
 
 <div className='grid grid-cols-3 gap-4 items-center justify-center m-4'>
-{/* <div className='flex flex-wrap items-center justify-center gap-10 mx-4 basis-1/3'> */}
-      {post?.length > 0 ? (
-        post.map((movie) => (
+      {movies?.length > 0 ? (
+        movies.map((movie) => (
           <div className='flex'>
                 <div
                   key={movie.imdbID}
