@@ -53,25 +53,43 @@ const MovieResults = () => {
         <div className='bg-black'>
             <button 
                     onClick={() => navigate("/Movies")}
-                    className='z-10 text-amber-950 hover:text-white active:text-white '>
+                    className='z-10 text-amber-950 hover:text-white active:text-white'>
                     <div 
-                        className='z-10 absolute left-6 top-6 text-xs flex rounded shadow-2xl drop-shadow-md outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-white active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        className='z-10 absolute left-6 top-6 text-xs flex items-center justify-center rounded shadow-2xl drop-shadow-md outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-white active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
                         >  
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" class="size-6 stroke-white">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-                        </svg>
-    
+                        </svg> 
+                        <div className='px-2 text-white'>
+                        Return to movie search
+                        </div>
                     </div>
                 </button>
-                </div>
-        <div className="flex h-auto w-full justify-center bg-black pt-5">
-            <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl box-content text-transparent text-center select-none">
+        </div>
+        <div className="flex h-auto w-full justify-center bg-black pb-2">
+            <span className="absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl box-content text-transparent text-center select-none">
             Enjoy your Movie!
             </span>
             <h1
                 className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl text-transparent text-center select-auto">
                 Enjoy your Movie!
             </h1>
+        </div>
+        <div className='bg-black flex items-center justify-center'>
+            <button 
+                    onClick={() => navigate("/Movies")}
+                    className='z-10 text-amber-950 hover:text-white active:text-white'>
+                    <div 
+                        className='z-10 text-xs flex items-center justify-center rounded shadow-2xl drop-shadow-md outline outline-offset-2 outline-4 outline-deep-orange-400-accent hover:border-none hover:bg-none hover:outline-white active:bg-orange-800  active:outline-orange-400 invisible sm:visible' 
+                        >  
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" class="size-6 stroke-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                        </svg> 
+                        <div className='px-2 text-white'>
+                        Return to movie search
+                        </div>
+                    </div>
+                </button>
         </div>
        <div className=' min-h-screen mx-0 my-auto w-full flex justify-center flex-wrap bg-black h-full'>
           <div className='w-full flex justify-between h-full'>
@@ -80,7 +98,7 @@ const MovieResults = () => {
               <div className='w-96'>
                 <h1 className='text-amber-500 text-6xl flex flex-col text-center   
                 relative top-0 w-96 h-auto py-4 justify-center bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-transparent select-auto'>
-                        <span className='font-mono font-thin text-xs text-white'>(Title) </span>
+                        <span className='font-mono font-thin text-xs text-gray-700'>(Title) </span>
                     {movie.Title}
                 </h1>
                 <div className='text-white font-thin'>
