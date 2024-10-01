@@ -18,6 +18,11 @@ const MovieSearch = () => {
     try {
       const { data } = await axios.get(`https://www.omdbapi.com/?t=${movieTitle}&apikey=3e685048`);
       setPosts(data);
+    if (data.Response === "True") {
+      setPosts(data.Search);
+    } else {
+      setPosts([]);
+    }
     } catch (error) {
       console.log("Error fetching movie data", error);
     }
@@ -56,29 +61,7 @@ const MovieSearch = () => {
         
         {/* Movie details rendering */}
 
-
-        {/* {posts.map(post => <div>{post.Title}</div>)} */}
-
-{/* 
-        // {post.map((movie) => {
-        //   return (<div onClick={() => navigate(`/${movie.imdbID}`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
-        //     <div className='mt-8 w-full flex flex-wrap justify-between'>
-        //       <div className='border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center'>
-        //         <div className='text-white'>
-        //           Title: {movie.Title} 
-        //         </div>
-        //         <div className='text-white'>
-        //           Year: {movie.Year}
-        //         </div>
-        //         <div className='text-white'>
-        //           <img src={movie.Poster} alt={`${movie.Title} poster`} />
-        //         </div>
-        //       </div>
-        //     </div>
-        //   </div>)
-        // })} */}
-
-{post && (
+{/* {post && (
           <div onClick={() => navigate(`/${post.Title}`)} className='mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer'>
             <div className='mt-8 w-full flex flex-wrap justify-between'>
               <div className='border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center'>
@@ -94,7 +77,72 @@ const MovieSearch = () => {
               </div>
             </div>
           </div>
+        )} */}
+
+
+{/* {post && (
+          <div
+            onClick={() => navigate(`/${post.imdbID}`)}
+            className="mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer"
+          >
+            <div className="mt-8 w-full flex flex-wrap justify-between">
+              <div className="border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center">
+                <div className="text-white">Title: {post.Title}</div>
+                <div className="text-white">Year: {post.Year}</div>
+                <div className="text-white">
+                  <img src={post.Poster} alt={`${post.Title} poster`} />
+                </div>
+              </div>
+            </div>
+          </div>
+        )} */}
+
+{/* <div className="mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black">
+  {post?.length > 0 ? (
+    post.map((post) => (
+      <div
+        key={post.imdbID}
+        onClick={() => navigate(`/${post.imdbID}`)}
+        className="mt-8 w-full flex flex-wrap justify-between cursor-pointer"
+      >
+        <div className="border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center">
+          <div className="text-white">Title: {post.Title}</div>
+          <div className="text-white">Year: {post.Year}</div>
+          <div className="text-white">
+            <img src={post.Poster} alt={`${post.Title} poster`} />
+          </div>
+        </div>
+      </div>
+    ))
+  ) : (
+    <div className="text-white">No movies found</div>
+  )}
+</div> */}
+
+{post?.length > 0 ? (
+    post.map((movie) => (
+      <>
+          <div
+            key={movie.imdbID}
+            onClick={() => navigate(`/${movie.imdbID}`)}
+            className="mx-0 my-auto w-full max-w-7xl flex justify-center flex-wrap bg-black cursor-pointer"
+            >
+            <div className="mt-8 w-full flex flex-wrap justify-between">
+              <div className="border-8 border-double border-amber-500 rounded-sm p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center">
+                <div className="text-white">Title: {movie.Title}</div>
+                <div className="text-white">Year: {movie.Year}</div>
+                <div className="text-white">
+                  <img src={movie.Poster} alt={`${movie.Title} poster`} />
+                </div>
+              </div>
+            </div>
+          </div>
+            </>
+            ))
+            ) : (
+              <div className="text-white flex items-center justify-center font-thin">No movies found for:   <span className='font-extrabold font-mono'> {searchMovie} </span> </div>
         )}
+
         <h5 className='text-white bg-black font-thin pb-5 pl-5'> End of search results for:   <span className='font-extrabold font-mono'> {searchMovie} </span> </h5>
         </div>
     <Footer></Footer>
