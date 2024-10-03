@@ -4,10 +4,17 @@ import { useParams, useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 
-const MovieSearch = () => {
+const MovieSearch = ({movie}) => {
   const { Title } = useParams();
   const [movies, setMovies] = useState([]);
   const [searchMovie, setSearchMovie] = useState(Title || "");
+
+  const [sorting, setSorting] = useState(movie);
+
+  function sortMovies() {
+    console.log("filter")
+  }
+
   let navigate = useNavigate();
 
   function onSearch() {
@@ -49,7 +56,7 @@ const MovieSearch = () => {
         </div>
       </div>
 
-      <div className="flex h-auto w-full justify-center bg-black">
+      <div className="flex flex-col h-auto w-full justify-center items-center bg-black">
         <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl box-content font-extrabold text-transparent text-center select-none">
         Enjoy your Movie!
         </span>
@@ -57,6 +64,16 @@ const MovieSearch = () => {
             className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r from-orange-800 via-amber-500 to-yellow-300 bg-clip-text text-6xl font-extrabold text-transparent text-center select-auto">
             Enjoy your Movie!
         </h1>
+      <select 
+          defaultValue="DEFAULT" 
+          className='w-40 text-center border-amber-400 border-4 rounded-sm bg-gray-500 text-white'
+          value={sorting}
+          onChange={sortMovies}>
+        <option value="DEFAULT" disabled>Sort</option>
+        <option value="HIGH_TO_LOW">Year, New to Old</option>
+        <option value="LOW_TO_HIGH">Year, Old to New</option>
+        <option value="RATING">Rating</option>
+      </select>
       </div>
 
 <div className='grid grid-cols-3 gap-4 items-center justify-center m-4'>
@@ -83,7 +100,11 @@ const MovieSearch = () => {
                   ) : (
                     <div className="text-white flex items-center justify-center font-thin pl-1">Searching for:<span className='font-extrabold font-mono pl-3'>{searchMovie} </span> ... </div>
                     )} 
+
+                    
 </div>
+
+
 
 
 
