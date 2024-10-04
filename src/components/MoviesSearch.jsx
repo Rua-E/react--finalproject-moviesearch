@@ -11,8 +11,12 @@ const MovieSearch = ({movie}) => {
 
   const [sorting, setSorting] = useState(movie);
 
-  function sortMovies() {
-    console.log("filter")
+  function sortMovies(filter) {
+    console.log(filter)
+    if (filter === "RATING") {
+      setSorting(sorting.slice().sort((a, b) => a.Rating - b.Rating))
+      
+    }
   }
 
   let navigate = useNavigate();
@@ -68,7 +72,7 @@ const MovieSearch = ({movie}) => {
           defaultValue="DEFAULT" 
           className='w-40 text-center border-amber-400 border-4 rounded-sm bg-gray-500 text-white'
           value={sorting}
-          onChange={sortMovies}>
+          onChange={(event) => sortMovies(event.target.value)}>
         <option value="DEFAULT" disabled>Sort</option>
         <option value="HIGH_TO_LOW">Year, New to Old</option>
         <option value="LOW_TO_HIGH">Year, Old to New</option>
@@ -79,7 +83,7 @@ const MovieSearch = ({movie}) => {
 <div className='grid grid-cols-3 gap-4 items-center justify-center m-4'>
       {movies?.length > 0 ? (
         movies.map((movie) => (
-          <div className='flex'>
+          <div className='flex' key={movie.imdbID}>
                 <div
                   key={movie.imdbID}
                   onClick={() => navigate(`/${movie.imdbID}`)}
