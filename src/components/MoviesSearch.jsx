@@ -70,7 +70,7 @@ const MovieSearch = ({movie}) => {
         </h1>
       <select 
           defaultValue="DEFAULT" 
-          className='w-40 text-center border-amber-400 border-4 rounded-sm bg-gray-500 text-white'
+          className='w-40 text-center border-amber-400 border-4 rounded-sm bg-gray-500 text-white mb-8'
           value={sorting}
           onChange={(event) => sortMovies(event.target.value)}>
         <option value="DEFAULT" disabled>Sort</option>
@@ -80,19 +80,21 @@ const MovieSearch = ({movie}) => {
       </select>
       </div>
 
-<div className='grid grid-cols-3 gap-4 items-center justify-center m-4'>
+<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-32'>
       {movies?.length > 0 ? (
         movies.map((movie) => (
           <div className='flex' key={movie.imdbID}>
                 <div
                   key={movie.imdbID}
                   onClick={() => navigate(`/${movie.imdbID}`)}
-                  className=" h-auto my-auto justify-center bg-black cursor-pointer  "
+                  className=" my-auto flex items-center justify-between bg-black cursor-pointer w-full h-full "
                   >
-                  <div className="mt-8 w-full justify-between">
-                    <div className=" border-4 border-double border-amber-500 hover:outline-dashed hover:outline-8 hover:outline-orange-800 hover:border-dashed p-5 mb-8 text-xl font-bold text-white w-full max-w-72 flex flex-col items-center justify-center text-center">
-                      <div className="font-thin text-gray-500">Title: <span className='font-extrabold text-white'> {movie.Title} </span> </div>
-                      <div className="font-thin  text-gray-500">Year: <span className='font-extrabold text-white'>  {movie.Year} </span> </div>
+                  <div className="flex justify-between w-full h-full">
+                    <div className="border-4 border-double border-amber-500 hover:outline-dashed hover:outline-8 hover:outline-orange-800 hover:border-dashed p-5 mb-8 text-xl font-bold text-white w-full flex flex-col items-center align-text-top justify-around text-center h-full">
+                      <div>
+                        <div className="font-thin text-gray-500">Title: <span className='font-extrabold text-white'> {movie.Title} </span> </div>
+                        <div className="font-thin  text-gray-500">Year: <span className='font-extrabold text-white'>  {movie.Year} </span> </div>
+                      </div>
                       <div className="text-white h-auto w-auto max-w-72 ">
                         <img src={movie?.Poster} alt={`${movie.Title} poster`} />
                       </div>
